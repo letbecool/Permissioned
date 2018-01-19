@@ -749,6 +749,9 @@ datadir:="/home/bikeshrestha/pnodes"
 =======
 //TO-DO: fix <DataDir> with respective DataDir direcory 		
 datadir:="/home/rosebay/nodes"
+<<<<<<< HEAD
+>>>>>>> 25000c68fbead2b91249dd0a8692561502f164f5
+=======
 >>>>>>> 25000c68fbead2b91249dd0a8692561502f164f5
 srv.DataDir=datadir
 
