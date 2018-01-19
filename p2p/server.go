@@ -744,7 +744,7 @@ log.Trace("Rose Permissioning",
 		}
 //irrespective to given <datadir>, place your permissioned-nodes.json on this datadir "home/permissioned-nodes" directory in linux.
 //TO-DO: fix <DataDir> with respective DataDir direcory
-datadir:="/home/bikeshrestha/nodes"
+datadir:="/home/bikeshrestha/pnodes"
 srv.DataDir=datadir
 
 		if !isNodePermissioned(node, currentNode, srv.DataDir, direction) {
