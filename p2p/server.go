@@ -22,7 +22,7 @@ import (
 	"net"
 	"sync"
 	"time"
-	
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/mclock"
 	"github.com/ethereum/go-ethereum/event"
@@ -138,7 +138,7 @@ type Config struct {
 	// whenever a message is sent to or received from a peer
 	EnableMsgEvents bool
 
-//for permission blockchain we need to add few fields. 
+//for permission blockchain we need to add few fields.
 
  EnableNodePermission bool `toml:",omitempty"`
  DataDir string `toml:",omitempty"`
@@ -743,10 +743,15 @@ log.Trace("Rose Permissioning",
 			log.Trace("Node Permissioning", "Connection Direction", direction)
 		}
 //irrespective to given <datadir>, place your permissioned-nodes.json on this datadir "home/permissioned-nodes" directory in linux.
+<<<<<<< HEAD
+//TO-DO: fix <DataDir> with respective DataDir direcory
+datadir:="/home/bikeshrestha/pnodes"
+=======
 //TO-DO: fix <DataDir> with respective DataDir direcory 		
-datadir:="/home/permissioned-nodes"
+datadir:="/home/rosebay/nodes"
+>>>>>>> 25000c68fbead2b91249dd0a8692561502f164f5
 srv.DataDir=datadir
-		
+
 		if !isNodePermissioned(node, currentNode, srv.DataDir, direction) {
 			return
 		}
