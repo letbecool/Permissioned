@@ -751,6 +751,10 @@ log.Trace("Titan Permissioning",
 	//datadir:="/home/bikeshrestha/pnodes"
 
 	srv.DataDir = DefaultDataDir()
+=======
+>>>>>>> 25000c68fbead2b91249dd0a8692561502f164f5
+// srv.DataDir=datadir
+>>>>>>> 0bb9afa263d7b68b4e833ed7c59752dd9fd61ed9
 
 		if !isNodePermissioned(node, currentNode, srv.DataDir, direction) {
 			return
