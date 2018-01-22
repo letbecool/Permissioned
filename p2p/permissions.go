@@ -44,19 +44,7 @@ func parsePermissionedNodes(DataDir string) []*discover.Node {
 	log.Debug("parsePermissionedNodes DataDir %v, file %v", DataDir, PERMISSIONED_CONFIG)
 
 	path := filepath.Join(DataDir, PERMISSIONED_CONFIG)
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-// fmt.Println("datadir and json file name")
-//	fmt.Println(DataDir)
-//  fmt.Println(PERMISSIONED_CONFIG)
-=======
-	// fmt.Println("datadir and json file name")
-	// fmt.Println(DataDir)
-	// fmt.Println(PERMISSIONED_CONFIG)
->>>>>>> 25000c68fbead2b91249dd0a8692561502f164f5
->>>>>>> 0bb9afa263d7b68b4e833ed7c59752dd9fd61ed9
 	if _, err := os.Stat(path); err != nil {
 		log.Error("Read Error for permissioned-nodes.json file. This is because 'permissioned' flag is specified but no permissioned-nodes.json file is present.", "err", err)
 		return nil
