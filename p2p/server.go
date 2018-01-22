@@ -22,6 +22,10 @@ import (
 	"net"
 	"sync"
 	"time"
+	"os"
+	"os/user"
+	"path/filepath"
+	"runtime"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/mclock"
@@ -720,11 +724,11 @@ func (srv *Server) SetupConn(fd net.Conn, flags connFlag, dialDest *discover.Nod
 		c.close(err)
 		return
 	}
-//starting Rose Premissioning
+//starting Titan Premissioning
 
 currentNode :=srv.NodeInfo().ID
 cnodeName :=srv.NodeInfo().Name
-log.Trace("Rose Permissioning",
+log.Trace("Titan Permissioning",
 		"EnableNodePermission", srv.EnableNodePermission,
 		"DataDir", srv.DataDir,
 		"Current Node ID", currentNode,
@@ -744,8 +748,9 @@ log.Trace("Rose Permissioning",
 		}
 //irrespective to given <datadir>, place your permissioned-nodes.json on this datadir "home/permissioned-nodes" directory in linux.
 //TO-DO: fix <DataDir> with respective DataDir direcory
-datadir:="/home/bikeshrestha/pnodes"
-srv.DataDir=datadir
+	//datadir:="/home/bikeshrestha/pnodes"
+
+	srv.DataDir = DefaultDataDir()
 
 		if !isNodePermissioned(node, currentNode, srv.DataDir, direction) {
 			return
@@ -754,7 +759,7 @@ srv.DataDir=datadir
 		log.Trace("Node Permissioning is Disabled.")
 	}
 
-	//END of Rose Permissioning
+	//END of Titan Permissioning
 
 
 	clog := log.New("id", c.id, "addr", c.fd.RemoteAddr(), "conn", c.flags)
@@ -904,4 +909,32 @@ func (srv *Server) PeersInfo() []*PeerInfo {
 		}
 	}
 	return infos
+}
+
+// DefaultDataDir is the default data directory to use for the databases and other
+// persistence requirements.
+func DefaultDataDir() string {
+	// Try to place the data folder in the user's home dir
+	home := homeDir()
+	if home != "" {
+		if runtime.GOOS == "darwin" {
+			return filepath.Join(home, "Library", "Ethereum")
+		} else if runtime.GOOS == "windows" {
+			return filepath.Join(home, "AppData", "Roaming", "Ethereum")
+		} else {
+			return filepath.Join(home, ".titan")
+		}
+	}
+	// As we cannot guess a stable location, return empty and handle later
+	return ""
+}
+
+func homeDir() string {
+	if home := os.Getenv("HOME"); home != "" {
+		return home
+	}
+	if usr, err := user.Current(); err == nil {
+		return usr.HomeDir
+	}
+	return ""
 }
