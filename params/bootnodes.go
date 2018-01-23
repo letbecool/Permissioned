@@ -57,7 +57,7 @@ var RinkebyV5Bootnodes = []string{
 // TitanBootnodes are the enode URLs of the P2P bootstrap nodes running on the
 // Titan chain network.
 var TitanBootnodes = []string{
-	"enode://4e9f0039a9ae15b1137f865cfb384fe4b87dfbde828dff45c667a2cb159a24bbfc28429bf3560ed147e4a5e3c309d270161a624416550973d255161e78d4df7f@192.168.1.6:30303", // bks
+	"enode://4e9f0039a9ae15b1137f865cfb384fe4b87dfbde828dff45c667a2cb159a24bbfc28429bf3560ed147e4a5e3c309d270161a624416550973d255161e78d4df7f@103.254.185.15:30303", // bks
 
 
 
@@ -67,7 +67,7 @@ var TitanBootnodes = []string{
 // Titan chain network for the experimental RLPx v5 topic-discovery network.
 var TitanV5Bootnodes = []string{
 
-	"enode://4e9f0039a9ae15b1137f865cfb384fe4b87dfbde828dff45c667a2cb159a24bbfc28429bf3560ed147e4a5e3c309d270161a624416550973d255161e78d4df7f@192.168.1.6:30303?discport=30304", // IE
+	"enode://4e9f0039a9ae15b1137f865cfb384fe4b87dfbde828dff45c667a2cb159a24bbfc28429bf3560ed147e4a5e3c309d270161a624416550973d255161e78d4df7f@103.254.185.15:30303?discport=30304", // IE
 
 
 }
